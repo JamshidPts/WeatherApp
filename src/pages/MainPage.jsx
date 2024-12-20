@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
+import Weather from '../components/weather/Weather'
 
 function MainPage() {
   return (
@@ -7,6 +8,11 @@ function MainPage() {
     <header>
         <Navbar />
     </header>
+    <main className='container'>
+      <section className=''>
+        <Weather />
+      </section>
+    </main>
     </>
   )
 }
