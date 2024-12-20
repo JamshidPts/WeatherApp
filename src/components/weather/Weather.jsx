@@ -33,7 +33,7 @@ function Weather() {
     }, []);
 
     const fetchWeatherByLocation = async (latitude, longitude) => {
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=605a09ba7f4e7696d2ef9d48adcf127d`;
         try {
             const response = await axios.get(url);
             setWeatherData(response.data);
