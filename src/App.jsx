@@ -1,10 +1,13 @@
-import Navbar from "./components/navbar/Navbar"
+import { BrowserRouter } from "react-router-dom"
+import WeatherRouter from "./router/WeatherRouter"
 
 function App() {
 
   return (
     <>
-    <Navbar />
+    <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+      <WeatherRouter />
+    </BrowserRouter>
     </>
   )
 }
