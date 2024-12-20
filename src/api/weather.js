@@ -1,1 +1,13 @@
-const BASE_URL = "36f606f128e94469a94163232242012";
+import axios from 'axios';
+
+export const search = async (city) => {
+    try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
+        const response = await axios.get(url);
+        console.log(response.data);
+        return response.data
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
