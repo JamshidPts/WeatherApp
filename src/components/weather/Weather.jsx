@@ -49,7 +49,7 @@ function Weather() {
 
     return (
         <div className='desktop:h-[90vh] laptop:mt-0 laptop:h-[100vh] tablet:h-[90vh] landscape-tablet:h-[120vh] phone:h-[90vh] landscape-phone:h-[130vh] grid place-items-center'>
-            <div className='w-[400px] tablet:w-[350px] landscape-phone:mt-[80px] phone:w-[300px] min-h-[60vh] dark:bg-[#2a2a2a] bg-[#F2F3F4] shadow-md rounded-lg text-center p-[20px] m-auto'>
+            <div className='w-[400px] tablet:w-[350px] landscape-phone:mt-[80px] phone:w-[300px] phone:mt-[50px] min-h-[60vh] dark:bg-[#2a2a2a] bg-[#F2F3F4] shadow-md rounded-lg text-center p-[20px] m-auto'>
                 {loading ? (
                     <div className='grid place-items-center min-h-[50vh]'>
                         <img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" />

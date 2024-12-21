@@ -38,7 +38,7 @@ function Navbar() {
           </button>
         </div>
       </div>
-      <div className={`transition-all duration-500 ease-in-out ${menuOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'} shadow-md desktop:hidden laptop:hidden tablet:block phone:block bg-[#F2F3F4] dark:bg-[#2a2a2a] dark:text-[#E0E0E0]`}>
+      <div className={`overflow-hidden transition-all duration-500 ease-in-out ${menuOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'} shadow-md desktop:hidden laptop:hidden tablet:block phone:block bg-[#F2F3F4] dark:bg-[#2a2a2a] dark:text-[#E0E0E0]`}>
         <button className="w-full text-center p-2"><a href="/">Home</a></button>
         <button className="w-full text-center p-2"><a href="/search">Search City</a></button>
         <button className="w-full text-center p-2"><a href="/about">About us</a></button>
