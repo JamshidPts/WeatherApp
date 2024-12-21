@@ -4,8 +4,8 @@ import humidity from "../../assets/humidity.png";
 import humidityWhite from "../../assets/humidityWhite.png";
 import windBlack from "../../assets/wind.png";
 import windWhite from "../../assets/windWhite.png";
-import loadingWhite from "../../assets/loadingWhite.gif"
-import loadingBlack from "../../assets/loadingBlack.gif"
+import loadingWhite from "../../assets/loadingWhite.gif";
+import loadingBlack from "../../assets/loadingBlack.gif";
 import { context } from '../../context/Context';
 import axios from 'axios';
 
@@ -44,44 +44,48 @@ function Weather() {
         }
     };
 
-    if (loading) {
-        return <div className='grid place-items-center h-[90vh]'><img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" /></div>;
-    }
-
-    if (!weatherData) {
-        return <div className='grid place-items-center h-[90vh]'>Unable to fetch weather data.</div>;
-    }
-
-    const { main, weather, wind, name } = weatherData;
-    const weatherIcon = allIcons[weather[0].icon] || allIcons["01d"];
+    const { main, weather, wind, name } = weatherData || {};
+    const weatherIcon = allIcons?.[weather?.[0]?.icon] || allIcons?.["01d"];
 
     return (
-            <div className='desktop:h-[90vh] landscape-phone:mt-20 laptop:mt-0 laptop:h-[90vh] tablet:h-[90vh] phone:h-[90vh] grid place-items-center'>
-                <div className='w-[400px] tablet:w-[350px] phone:w-[300px] dark:bg-[#2a2a2a] shadow-md rounded-lg text-center p-[20px] m-auto'>
-                    <h1 className='text-[25px] font-bold text-[#2a2a2a] tracking-wide dark:text-[#E0E0E0]'>{name}</h1>
-                    <div className='flex justify-center'>
-                        <img className='w-[150px]' src={weatherIcon} alt="Weather Icon" />
+        <div className='desktop:h-[90vh] laptop:mt-0 laptop:h-[100vh] tablet:h-[90vh] landscape-tablet:h-[120vh] phone:h-[90vh] landscape-phone:h-[130vh] grid place-items-center'>
+            <div className='w-[400px] tablet:w-[350px] landscape-phone:mt-[80px] phone:w-[300px] min-h-[60vh] dark:bg-[#2a2a2a] bg-[#F2F3F4] shadow-md rounded-lg text-center p-[20px] m-auto'>
+                {loading ? (
+                    <div className='grid place-items-center min-h-[50vh]'>
+                        <img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" />
                     </div>
-                    <h2 className='text-[45px] font-bold text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.temp}°C</h2>
-                    <h2 className='text-[23px] pb-[60px] text-[#2a2a2a] dark:text-[#E0E0E0]'>{weather[0].description}</h2>
-                    <div className='flex items-center justify-around'>
-                        <div className='flex flex-col items-center gap-[20px]'>
-                            <img className='w-[50px]' src={theme === "dark" ? humidityWhite : humidity} alt="Humidity" />
-                            <div>
-                                <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.humidity} %</p>
-                                <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Humidity</span>
+                ) : !weatherData ? (
+                    <div className='grid place-items-center min-h-[50vh]'>
+                        <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Unable to fetch weather data.</p>
+                    </div>
+                ) : (
+                    <>
+                        <h1 className='text-[35px] font-bold text-[#2a2a2a] tracking-wide dark:text-[#E0E0E0] pt-[20px]'>{name}</h1>
+                        <div className='flex justify-center'>
+                            <img className='w-[150px]' src={weatherIcon} alt="Weather Icon" />
+                        </div>
+                        <h2 className='text-[45px] font-bold text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.temp}°C</h2>
+                        <h2 className='text-[23px] pb-[60px] text-[#2a2a2a] dark:text-[#E0E0E0]'>{weather[0].description}</h2>
+                        <div className='flex items-center justify-around'>
+                            <div className='flex flex-col items-center gap-[20px]'>
+                                <img className='w-[50px]' src={theme === "dark" ? humidityWhite : humidity} alt="Humidity" />
+                                <div>
+                                    <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.humidity} %</p>
+                                    <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Humidity</span>
+                                </div>
+                            </div>
+                            <div className='flex flex-col items-center gap-[20px]'>
+                                <img className='w-[50px]' src={theme === "dark" ? windWhite : windBlack} alt="Wind Speed" />
+                                <div>
+                                    <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{wind.speed} Km/h</p>
+                                    <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Wind Speed</span>
+                                </div>
                             </div>
                         </div>
-                        <div className='flex flex-col items-center gap-[20px]'>
-                            <img className='w-[50px]' src={theme === "dark" ? windWhite : windBlack} alt="Wind Speed" />
-                            <div>
-                                <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{wind.speed} Km/h</p>
-                                <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Wind Speed</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </>
+                )}
             </div>
+        </div>
     );
 }
 
