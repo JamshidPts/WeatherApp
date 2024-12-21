@@ -1,7 +1,4 @@
 {
-    "redirects": [
-      { "source": "/search", "destination": "/search", "permanent": true }
-    ],
     "rewrites": [
       { "source": "/(.*)", "destination": "/" }
     ]
