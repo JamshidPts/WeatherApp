@@ -47,7 +47,7 @@ function Search() {
     return (
         <>
             <Navbar />
-            <section className='h-[90vh]'>
+            <div>
                 <div className='w-[400px] tablet:w-[350px] phone:w-[300px] dark:bg-[#2a2a2a] min-h-[450px] shadow-md rounded-lg text-center p-[20px] m-auto desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] phone:mt-[140px]'>
                     <div className='flex items-center justify-center gap-[10px] p-[5px] m-[10px] '>
                         <input
@@ -96,7 +96,7 @@ function Search() {
                         <div className={`flex items-center justify-center h-[50px] ${theme === "dark" ? "text-[#E0E0E0]" : "text-[#2a2a2a]"}`}>Search your city</div> // Сообщение, если данных нет
                     )}
                 </div>
-            </section>
+            </div>
         </>
     );
 }

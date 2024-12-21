@@ -45,43 +45,43 @@ function Weather() {
     };
 
     if (loading) {
-        return <div className='flex items-center justify-center h-[90.7vh]'><img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" /></div>;
+        return <div className='grid place-items-center h-[90vh]'><img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" /></div>;
     }
 
     if (!weatherData) {
-        return <div className='flex items-center justify-center h-[90.7vh]'>Unable to fetch weather data.</div>;
+        return <div className='grid place-items-center h-[90vh]'>Unable to fetch weather data.</div>;
     }
 
     const { main, weather, wind, name } = weatherData;
     const weatherIcon = allIcons[weather[0].icon] || allIcons["01d"];
 
     return (
-        <div className='flex items-center justify-center flex-col h-[90.7vh]'>
-            <div className='w-[400px] tablet:w-[350px] phone:w-[300px] dark:bg-[#2a2a2a] mt-[30px] min-h-[450px] shadow-md rounded-lg text-center p-[20px]'>
-                <h1 className='text-[25px] font-bold text-[#2a2a2a] tracking-wide dark:text-[#E0E0E0]'>{name}</h1>
-                <div className='flex justify-center'>
-                    <img className='w-[150px]' src={weatherIcon} alt="Weather Icon" />
-                </div>
-                <h2 className='text-[45px] font-bold text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.temp}°C</h2>
-                <h2 className='text-[23px] pb-[60px] text-[#2a2a2a] dark:text-[#E0E0E0]'>{weather[0].description}</h2>
-                <div className='flex items-center justify-around'>
-                    <div className='flex flex-col items-center gap-[20px]'>
-                        <img className='w-[50px]' src={theme === "dark" ? humidityWhite : humidity} alt="Humidity" />
-                        <div>
-                            <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.humidity} %</p>
-                            <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Humidity</span>
-                        </div>
+            <div className='desktop:h-[90vh] landscape-phone:mt-20 laptop:mt-0 laptop:h-[90vh] tablet:h-[90vh] phone:h-[90vh] grid place-items-center'>
+                <div className='w-[400px] tablet:w-[350px] phone:w-[300px] dark:bg-[#2a2a2a] shadow-md rounded-lg text-center p-[20px] m-auto'>
+                    <h1 className='text-[25px] font-bold text-[#2a2a2a] tracking-wide dark:text-[#E0E0E0]'>{name}</h1>
+                    <div className='flex justify-center'>
+                        <img className='w-[150px]' src={weatherIcon} alt="Weather Icon" />
                     </div>
-                    <div className='flex flex-col items-center gap-[20px]'>
-                        <img className='w-[50px]' src={theme === "dark" ? windWhite : windBlack} alt="Wind Speed" />
-                        <div>
-                            <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{wind.speed} Km/h</p>
-                            <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Wind Speed</span>
+                    <h2 className='text-[45px] font-bold text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.temp}°C</h2>
+                    <h2 className='text-[23px] pb-[60px] text-[#2a2a2a] dark:text-[#E0E0E0]'>{weather[0].description}</h2>
+                    <div className='flex items-center justify-around'>
+                        <div className='flex flex-col items-center gap-[20px]'>
+                            <img className='w-[50px]' src={theme === "dark" ? humidityWhite : humidity} alt="Humidity" />
+                            <div>
+                                <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{main.humidity} %</p>
+                                <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Humidity</span>
+                            </div>
+                        </div>
+                        <div className='flex flex-col items-center gap-[20px]'>
+                            <img className='w-[50px]' src={theme === "dark" ? windWhite : windBlack} alt="Wind Speed" />
+                            <div>
+                                <p className='text-[#2a2a2a] dark:text-[#E0E0E0]'>{wind.speed} Km/h</p>
+                                <span className='text-[#2a2a2a] dark:text-[#E0E0E0]'>Wind Speed</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
