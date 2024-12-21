@@ -16,7 +16,7 @@ function Navbar() {
 
   return (
     <nav className="container">
-      <div className="dark:bg-[#2a2a2a] dark:text-[#E0E0E0] shadow-md desktop:rounded-b-md laptop:rounded-b-md px-[20px] py-[10px] justify-between items-center desktop:flex laptop:flex tablet:flex phone:flex">
+      <div className="dark:bg-[#2a2a2a] landscape-phone:h-[20vh] laptop:h-[10vh] dark:text-[#E0E0E0] shadow-md desktop:rounded-b-md laptop:rounded-b-md px-[20px] py-[10px] justify-between items-center desktop:flex laptop:flex tablet:flex phone:flex h-[10vh]">
         <div className="w-[70px] tablet:w-[60px] phone:w-[55px]">
           <img src={logo} alt="weather"/>
         </div>

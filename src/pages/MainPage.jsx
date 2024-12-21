@@ -9,7 +9,7 @@ function MainPage() {
         <Navbar />
     </header>
     <main className='container'>
-      <section className=''>
+      <section>
         <Weather />
       </section>
     </main>
