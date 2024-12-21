@@ -44,8 +44,8 @@ function Search() {
     };
 
     return (
-            <div className='desktop:h-[90vh] laptop:mt-0 laptop:h-[90vh] tablet:h-[90vh] landscape-tablet:h-[120vh] phone:h-[90vh] landscape-phone:h-[130vh] grid place-items-center'>
-                <div className='w-[400px] landscape-phone:mt-20 tablet:w-[350px] phone:w-[300px] min-h-[60vh] dark:bg-[#2a2a2a] bg-[#F2F3F4] shadow-md rounded-lg text-center p-[20px] m-auto'>
+            <div className='desktop:h-[90vh] laptop:mt-0 laptop:h-[100vh] tablet:h-[90vh] landscape-tablet:h-[120vh] phone:h-[90vh] landscape-phone:h-[170vh] grid place-items-center'>
+                <div className='w-[400px] tablet:w-[350px] landscape-phone:mt-[80px] phone:w-[300px] phone:mt-[50px] landscape-phone:min-h-[100vh] min-h-[60vh] dark:bg-[#2a2a2a] bg-[#F2F3F4] shadow-md rounded-lg text-center p-[20px] m-auto'>
                     <div className='flex items-center justify-center gap-[10px] p-[5px] m-[10px] '>
                         <input
                             className='p-[10px] rounded-md outline-[#2a2a2a] phone:w-[200px] border border-[#2a2a2a] placeholder:text-[#2a2a2a]'
