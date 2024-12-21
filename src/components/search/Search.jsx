@@ -9,7 +9,6 @@ import searchWhite from "../../assets/searchWhite.png";
 import loadingWhite from "../../assets/loadingWhite.gif"
 import loadingBlack from "../../assets/loadingBlack.gif"
 import { context } from '../../context/Context';
-import Navbar from '../navbar/Navbar';
 import { search } from '../../api/weather';
 
 function Search() {
@@ -45,13 +44,11 @@ function Search() {
     };
 
     return (
-        <>
-            <Navbar />
-            <div>
-                <div className='w-[400px] tablet:w-[350px] phone:w-[300px] dark:bg-[#2a2a2a] min-h-[450px] shadow-md rounded-lg text-center p-[20px] m-auto desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] phone:mt-[140px]'>
+            <div className='desktop:h-[90vh] laptop:mt-0 laptop:h-[90vh] tablet:h-[90vh] landscape-tablet:h-[120vh] phone:h-[90vh] landscape-phone:h-[130vh] grid place-items-center'>
+                <div className='w-[400px] landscape-phone:mt-20 tablet:w-[350px] phone:w-[300px] min-h-[60vh] dark:bg-[#2a2a2a] bg-[#F2F3F4] shadow-md rounded-lg text-center p-[20px] m-auto'>
                     <div className='flex items-center justify-center gap-[10px] p-[5px] m-[10px] '>
                         <input
-                            className='p-[10px] rounded-md outline-[#2a2a2a] phone:w-[200px]'
+                            className='p-[10px] rounded-md outline-[#2a2a2a] phone:w-[200px] border border-[#2a2a2a] placeholder:text-[#2a2a2a]'
                             type="text"
                             placeholder='Enter your city'
                             value={city}
@@ -63,7 +60,7 @@ function Search() {
                     </div>
 
                     {loading ? (
-                        <div className='flex items-center justify-center h-[50px]'><img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" /></div>
+                        <div className='grid place-items-center min-h-[50vh]'><img className='w-[200px]' src={theme === "dark" ? loadingBlack : loadingWhite} alt="loading" /></div>
                     ) : weatherData ? (
                         <>
                             <div className='flex justify-center'>
@@ -93,11 +90,10 @@ function Search() {
                             </div>
                         </>
                     ) : (
-                        <div className={`flex items-center justify-center h-[50px] ${theme === "dark" ? "text-[#E0E0E0]" : "text-[#2a2a2a]"}`}>Search your city</div> // Сообщение, если данных нет
+                        <div className={`grid place-items-center min-h-[50vh] text-[20px] ${theme === "dark" ? "text-[#E0E0E0]" : "text-[#2a2a2a]"}`}>Search your city</div> // Сообщение, если данных нет
                     )}
                 </div>
             </div>
-        </>
     );
 }
 

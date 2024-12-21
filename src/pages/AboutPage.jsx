@@ -1,20 +1,20 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
-import Weather from '../components/weather/Weather'
+import About from '../components/about/About'
 
-function MainPage() {
+function AboutPage() {
   return (
     <>
     <header>
         <Navbar />
-    </header>
+    </header> 
     <main className='container'>
         <section>
-          <Weather />
+            <About />
         </section>
-    </main>
+    </main> 
     </>
   )
 }
 
-export default MainPage
+export default AboutPage

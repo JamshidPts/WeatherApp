@@ -1,8 +1,8 @@
 import React from 'react'
 import Navbar from '../components/navbar/Navbar'
-import Weather from '../components/weather/Weather'
+import Search from '../components/search/Search'
 
-function MainPage() {
+function SearchPage() {
   return (
     <>
     <header>
@@ -10,11 +10,11 @@ function MainPage() {
     </header>
     <main className='container'>
         <section>
-          <Weather />
+            <Search />
         </section>
     </main>
     </>
   )
 }
 
-export default MainPage
+export default SearchPage
