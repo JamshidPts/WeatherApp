@@ -30,10 +30,7 @@ function Navbar() {
           <button onClick={toggleTheme}>
             <img src={theme === 'light' ? darkMode : lightMode} alt="Theme Toggle" className="w-[50px] tablet:w-[35px] phone:w-[30px]" />
           </button>
-          <button
-            className="desktop:hidden laptop:hidden tablet:block phone:block tablet:w-[35px] phone:w-[30px]"
-            onClick={toggleMenu}
-          >
+          <button className="desktop:hidden laptop:hidden tablet:block phone:block tablet:w-[35px] phone:w-[30px]" onClick={toggleMenu}>
             <img src={theme === 'light' ? burgerBlack : burgerWhite} alt="Burger Menu" />
           </button>
         </div>
